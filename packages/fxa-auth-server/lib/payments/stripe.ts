@@ -958,6 +958,42 @@ export class StripeHelper {
   }
 
   /**
+   * TODO JSDoc
+   * Find and return up to 100 active subscriptions (limited by Stripe list
+   * subscriptions API) with expanded customer for the given plan id and
+   * current_period_end window.
+   * @param planId
+   * @param currentPeriodEndWindowMs
+   */
+  async findActiveSubscriptionsByPlanId(
+    planId: string,
+    currentPeriodEndWindowMs: number, // TODO: rename, should be in s not ms
+    startingAfter?: string
+  ): Promise<{ subscriptions: Stripe.Subscription[]; hasMore: boolean }> {
+    // TODO test-only
+    currentPeriodEndWindowMs = 26107044720;
+    const params: Stripe.SubscriptionListParams = {
+      price: planId,
+      current_period_end: {
+        lte: Math.floor((Date.now() + currentPeriodEndWindowMs) / 1000),
+        gte:
+          Math.floor((Date.now() + currentPeriodEndWindowMs) / 1000) -
+          24 * 60 * 60,
+      },
+      expand: ['data.customer'],
+      limit: 25, // TODO: think about more; adjust
+      starting_after: startingAfter,
+    };
+    const { data, has_more } = await this.stripe.subscriptions.list(params);
+    return {
+      subscriptions: data.filter((sub) =>
+        ACTIVE_SUBSCRIPTION_STATUSES.includes(sub.status)
+      ),
+      hasMore: has_more,
+    };
+  }
+
+  /**
    * Find and return a subscription for a customer of the given plan id.
    *
    * @param customer
