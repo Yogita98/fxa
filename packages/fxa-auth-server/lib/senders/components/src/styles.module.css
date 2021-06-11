@@ -1,0 +1,73 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* .Grid {
+  width: "100%";
+} */
+
+.header {
+  display: none;
+  width: 0;
+  height: 0;
+  max-height: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.fx-logo {
+  height: 60;
+  width: 60;
+  -ms-interpolation-mode: bicubic;
+}
+
+.sync {
+  height: 137;
+  width: 270;
+  -ms-interpolation-mode: bicubic;
+}
+
+.para {
+  font-family: sans-serif;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+  color: #737373;
+  font-size: 11px;
+  line-height: 18px;
+  width: 310px !important;
+  word-wrap: break-word;
+}
+
+.privacy-url {
+  color: #0a84ff;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.table {
+  text-align: center;
+  border: 0;
+  /* cellpadding: 0;
+    cellspacing: 0; */
+  width: 310;
+  -webkit-text-size-adjust: 100%;
+  border-collapse: collapse;
+  /* mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt; */
+  width: 310px;
+  margin: 0 auto;
+}
+
+.cell {
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* .Grid {
+  width: 100%;
+  border-collapse: collapse;
+} */
