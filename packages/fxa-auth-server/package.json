@@ -28,7 +28,7 @@
         "clean-up-old-ci-stripe-customers": "ts-node ./scripts/clean-up-old-ci-stripe-customers.js",
         "paypal-processor": "CONFIG_FILES='config/secrets.json' ts-node ./scripts/paypal-processor.ts",
         "subscription-reminders": "CONFIG_FILES='config/secrets.json' ts-node ./scripts/subscription-reminders.ts",
-        "write-react-emails": "npx tailwind build ./lib/senders/components/src/tailwind.css -o ./lib/senders/components/dist/tailwind.css && tsc -p ./tsconfig.templates.json && node ./lib/senders/components/dist/render.js && gulp"
+        "write-react-emails": "npx tailwind build ./lib/senders/components/src/tailwind.css -o ./lib/senders/components/dist/tailwind.css && tsc -p ./tsconfig.templates.json && node ./lib/senders/components/dist/render.js"
     },
     "repository": {
         "type": "git",
@@ -76,6 +76,7 @@
         "ioredis": "^4.27.5",
         "jed": "0.5.4",
         "jsonwebtoken": "^8.4.0",
+        "juice": "^8.0.0",
         "keyv": "4.0.3",
         "lodash": "^4.17.21",
         "luxon": "^1.27.0",
@@ -142,8 +143,6 @@
         "grunt-copyright": "0.3.0",
         "grunt-eslint": "^23.0.0",
         "grunt-newer": "1.3.0",
-        "gulp": "^4.0.2",
-        "gulp-inline-css": "^4.0.0",
         "jsxgettext-recursive-next": "1.1.0",
         "jws": "4.0.0",
         "keypair": "1.0.3",

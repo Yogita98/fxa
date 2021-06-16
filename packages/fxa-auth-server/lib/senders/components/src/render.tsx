@@ -3,6 +3,8 @@ import prettier from 'prettier';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import Fxa from './Fxa';
+const path = require('path');
+const juice = require('juice/client');
 
 const HelloWorldPage = () => {
   return (
@@ -26,7 +28,18 @@ function render() {
   let html2 = ReactDOMServer.renderToStaticMarkup(<Fxa classname="" />);
   let htmlWDoc = '<!DOCTYPE html>' + html1 + html2;
   let prettyHtml = prettier.format(htmlWDoc, { parser: 'html' });
-  let outputFile = './lib/senders/components/dist/render.html';
-  fs.writeFileSync(outputFile, prettyHtml);
+  const documentStyles = fs.readFileSync(
+    './lib/senders/components/dist/tailwind.css',
+    'utf8'
+  );
+  // console.log(path.join(__dirname,'../', 'inlined'))
+  fs.mkdir(path.join(__dirname, '../', 'inlined'), (err) => {
+    if (err) {
+      return console.error(err);
+    }
+  });
+  let outputFile = path.join(__dirname, '../', 'inlined/render.html');
+  var inlinedHTML = juice.inlineContent(prettyHtml, documentStyles);
+  fs.writeFileSync(outputFile, inlinedHTML);
   console.log(`Wrote ${outputFile}`);
 }
