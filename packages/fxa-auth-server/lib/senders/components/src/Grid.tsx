@@ -1,24 +1,23 @@
 import React from 'react';
-// import "./styles.css";
 
-const Cell = ({ children }: any) => {
-  return <td className="cell">{children}</td>;
+const Cell = ({ children, classname }: any) => {
+  return <td className={classname}>{children}</td>;
 };
 
-const Row = ({ children }: any) => {
+const Row = ({ children, classname }: any) => {
   return (
     <tr style={{ pageBreakBefore: 'always' }}>
       {React.Children.map(children, (el) => {
         if (el.type === Cell) return el;
-        return <td className="cell">{el}</td>;
+        return <td className={classname}>{el}</td>;
       })}
     </tr>
   );
 };
 
-const Grid = ({ children }: any) => {
+const Grid = ({ children, classname }: any) => {
   return (
-    <table className="table">
+    <table className={classname}>
       <tbody>
         {React.Children.map(children, (el) => {
           if (!el) return;

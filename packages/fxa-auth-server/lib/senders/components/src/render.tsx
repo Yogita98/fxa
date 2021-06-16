@@ -13,7 +13,7 @@ const HelloWorldPage = () => {
         <title>User Subscribed</title>
       </head>
       <body>
-        <h1>Welcome to my newsletter</h1>
+        <h1 className="bg-gray-100">Welcome to my newsletter</h1>
       </body>
     </html>
   );
@@ -22,9 +22,9 @@ const HelloWorldPage = () => {
 render();
 
 function render() {
-  let html = ReactDOMServer.renderToStaticMarkup(<HelloWorldPage />);
-  let html2 = ReactDOMServer.renderToStaticMarkup(<Fxa />);
-  let htmlWDoc = '<!DOCTYPE html>' + html + html2;
+  let html1 = ReactDOMServer.renderToStaticMarkup(<HelloWorldPage />);
+  let html2 = ReactDOMServer.renderToStaticMarkup(<Fxa classname="" />);
+  let htmlWDoc = '<!DOCTYPE html>' + html1 + html2;
   let prettyHtml = prettier.format(htmlWDoc, { parser: 'html' });
   let outputFile = './lib/senders/components/dist/render.html';
   fs.writeFileSync(outputFile, prettyHtml);
