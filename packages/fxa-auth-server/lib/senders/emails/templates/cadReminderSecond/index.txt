@@ -1,0 +1,7 @@
+cadReminderSecond-header = "<%- headerText %>"
+
+cadReminderSecond-body = "<%- bodyText %>"
+
+<%- link %>
+
+<%- include('/partials/automatedEmailNoAction/index.txt') %>

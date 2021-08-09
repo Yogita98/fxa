@@ -10,7 +10,7 @@ if [ -z "$CORS_ORIGIN" ]; then export CORS_ORIGIN="http://foo,http://bar"; fi;
 
 set -u
 
-DEFAULT_ARGS="--require ts-node/register --recursive --timeout 5000 --exit"
+DEFAULT_ARGS="--require ts-node/register --recursive --timeout 50000 --exit"
 
 node -r ts-node/register ./scripts/gen_keys.js
 node -r ts-node/register ./scripts/gen_vapid_keys.js
