@@ -8,3 +8,4 @@ export * from './metadata';
 export * from './automatedEmailNoAction';
 export * from './cadReminder';
 export * from './verificationReminder';
+export * from './location';

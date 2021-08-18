@@ -9,3 +9,4 @@ export * as postVerify from './postVerify';
 export * as postRemoveSecondary from './postRemoveSecondary';
 export * as verificationReminderFirst from './verificationReminderFirst';
 export * as verificationReminderSecond from './verificationReminderSecond';
+export * as verify from './verify';
